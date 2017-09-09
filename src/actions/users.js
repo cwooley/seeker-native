@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {AsyncStorage} from 'react-native'
 
 
 export function fetchJWT(userData){
@@ -57,13 +58,14 @@ export function createNewUser(userData){
   }
 }
 
-export function fetchUserData(){
+export function fetchUserData(jwt){
+  console.log('Hit fetchUserData')
   let url = 'https://seeker-api.herokuapp.com/api/v1/users/1234567'
 
   let request = axios({
   	method: 'get',
   	url: url,
-  	headers: {'id': localStorage.jwt}
+  	headers: {'id': jwt}
   })
   return {
     type: 'GET_USER_DATA',

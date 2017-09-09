@@ -1,3 +1,4 @@
+import {AsyncStorage} from 'react-native'
 
 export default function (state = {user: {companies: []}}, action){
   let newState
@@ -8,6 +9,9 @@ export default function (state = {user: {companies: []}}, action){
       console.log('hit  block and setting state with this data', action.payload.data)
       if(action.payload.data[0]){
         // localStorage.setItem('jwt', action.payload.data[0].jwt)
+        // console.log("LOCALSTORAGE",localStorage)
+
+        AsyncStorage.setItem('jwt', action.payload.data[0].jwt);
         //Where to put on mobile device?
         let userObj = JSON.parse(action.payload.data[1])
         console.log(userObj)
