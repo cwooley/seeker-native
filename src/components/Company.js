@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import {ListItem, Body, Text, Thumbnail} from 'native-base';
-import ReactTimeAgo from 'react-time-ago'
-import javascriptTimeAgo from 'javascript-time-ago'
-javascriptTimeAgo.locale(require('javascript-time-ago/locales/en'))
-require('javascript-time-ago/intl-messageformat-global')
-require('intl-messageformat/dist/locale-data/en')
+import TimeAgo from 'react-native-timeago';
+
+
+
 
 class Company extends Component{
   getLogoUrl(){
@@ -12,15 +11,15 @@ class Company extends Component{
   }
 
   makeLastContact(){
-    if (this.props.company.interactions){
-      let length = this.props.company.interactions.length
-      if (length === 0 ){
-        return 'never'
+      if (this.props.company.interactions){
+        let length = this.props.company.interactions.length
+        if (length === 0 ){
+          return 'never'
+        }
+        let lastContactDate = Date.parse(this.props.company.interactions[length-1].created_at)
+        return <TimeAgo time={lastContactDate} />
       }
-      let lastContactDate = Date.parse(this.props.company.interactions[length-1].created_at)
-      return <ReactTimeAgo locale="en-GB" >{lastContactDate}</ReactTimeAgo>
     }
-  }
 
   render(){
     return(

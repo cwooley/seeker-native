@@ -19,11 +19,11 @@ export function deleteCompany (id){
   }
 }
 
-export function makeNewCompany (companyName) {
+export function makeNewCompany (companyData) {
   var FormData = require('form-data');
   var form = new FormData();
-  form.append('company[name]', companyName)
-  form.append('user_id', localStorage.jwt)
+  form.append('company[name]', companyData.companyName)
+  form.append('user_id', companyData.jwt)
   let request = axios({
     method: 'post',
     url: 'https://seeker-api.herokuapp.com/api/v1/companies',

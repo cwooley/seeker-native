@@ -15,7 +15,8 @@ class CompaniesList extends Component {
       listViewData: []
     };
   }
-
+//Template for RenderRow
+//data => <Company company={data} />
 
   componentWillMount(){
     this.setState({listViewData: this.props.state.user.companies})
