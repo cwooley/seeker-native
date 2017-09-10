@@ -4,41 +4,23 @@ import { bindActionCreators } from 'redux';
 import { ListView} from 'react-native';
 import {deleteCompany} from '../actions/companies'
 import { Button, Icon, List, ListItem, Text } from 'native-base';
-import Company from './Company'
+import Company from './Company';
+import SwipeableDeleteList from './SwipeableDeleteList';
 
 class CompaniesList extends Component {
-  constructor(props) {
-    super(props);
-    this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    this.state = {
-      basic: true,
-      listViewData: []
-    };
-  }
-//Template for RenderRow
-//data => <Company company={data} />
 
-  componentWillMount(){
-    this.setState({listViewData: this.props.state.user.companies})
-  }
-  renderCompanies(){
-    return this.props.state.user.companies.map(company => <Company company={company} />)
-  }
+deleteCompany = (id) => {
+  console.log(id)
+  this.props.deleteCompany(id)
+}
+renderCompany = (data) => <Company company={data} />
   render(){
-    console.log("PROPS", this.props)
-    return (
-      <List
-       dataSource={this.ds.cloneWithRows(this.props.state.user.companies)}
-       renderRow={data => <Company company={data} />}
-       renderLeftHiddenRow={() => {}}
-       renderRightHiddenRow={(data, secId, rowId, rowMap) =>
-         <Button full danger onPress={event => this.props.deleteCompany(data.id)}>
-           <Icon active name="trash" />
-         </Button>}
-       rightOpenValue={-75}
-     />
-
-
+    return(
+      <SwipeableDeleteList
+        listViewData={this.props.companies}
+        renderRow={this.renderCompany}
+        deleteRow={this.deleteCompany}
+      />
     )
   }
 }
@@ -48,7 +30,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function mapStateToProps(state){
-  return {state}
+  return {companies: state.user.companies}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompaniesList);
