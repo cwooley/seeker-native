@@ -25,6 +25,7 @@
     "native-base": "^2.3.1",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.47.0",
+    "react-time-ago": "^0.3.7",
     "redux-promise": "^0.5.3"
   }
 }

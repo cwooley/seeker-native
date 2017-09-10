@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Form, Input, Label, Item, Button} from 'native-base';
+import {Form, Input, Label, Item, Button, Spinner} from 'native-base';
 import {Text, AsyncStorage} from 'react-native';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -11,7 +11,8 @@ class LoginForm extends Component{
 
   state={
     username: '',
-    password: ''
+    password: '',
+    loading: false
   }
 
   loginPressed = () => {
@@ -19,6 +20,7 @@ class LoginForm extends Component{
     var form = new FormData();
     form.append('username', this.state.username)
     form.append('password', this.state.password)
+    this.setState({loading: true})
     // Yo Dawg I heard you like Async
     let request = axios({
     	method: 'post',
@@ -34,15 +36,16 @@ class LoginForm extends Component{
       <Form>
         <Item stackedLabel>
           <Label>Username</Label>
-          <Input onChangeText={(text)=> this.setState({ username: text})} value={this.state.username}/>
+          <Input autoCapitalize="none" onChangeText={(text)=> this.setState({ username: text})} value={this.state.username}/>
         </Item>
         <Item stackedLabel last>
           <Label>Password</Label>
-          <Input onChangeText={(text)=> this.setState({ password: text})} value={this.state.password}/>
+          <Input secureTextEntry={true} onChangeText={(text)=> this.setState({ password: text})} value={this.state.password}/>
         </Item>
         <Button block info onPress={this.loginPressed}>
           <Text>Log In</Text>
         </Button>
+        {this.state.loading && <Spinner color='blue' />}
       </Form>
     )
   }

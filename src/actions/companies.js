@@ -8,6 +8,7 @@ export function setActiveCompany (company) {
 }
 
 export function deleteCompany (id){
+  console.log("made it to action")
   let request = axios({
     method: 'delete',
     url: `https://seeker-api.herokuapp.com/api/v1/companies/${id}`

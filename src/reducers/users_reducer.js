@@ -33,6 +33,7 @@ export default function (state = {user: {companies: []}}, action){
       return newState
 
     case "DELETE_COMPANY":
+      console.log("Made it to reducer")
       newState = {...state}
       newCompanies = state.companies.filter(company => company.id != action.payload.data.id)
       newState.companies = newCompanies
