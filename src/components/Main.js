@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import CompaniesList from './CompaniesList'
 import NewCompanyForm from './NewCompanyForm'
 import ActiveCompany from './ActiveCompany'
+import {Tabs} from './TabNavigator'
 
 class Main extends Component{
 
@@ -19,8 +20,9 @@ class Main extends Component{
     //SWITCH TO CHECK FOR USER ALSO NEED TO CONNECT THIS TO STORE
     if (this.props.state.user.id){
       console.log("We have token rendering CompaniesList")
+      return <Tabs />
       // return <View><NewCompanyForm /><CompaniesList /></View>
-      return <ActiveCompany />
+      // return <ActiveCompany />
     }
     console.log("No token rendering LoginForm")
     return <LoginForm />
@@ -28,15 +30,15 @@ class Main extends Component{
   }
 
   render () {
-    return (
-      <Container>
-        <Header />
-        <Content>
-          {this.myShittyNavSystem()}
-        </Content>
-      </Container>
-    )
-
+    // return (
+      // <Container>
+      //   <Header />
+      //   <Content>
+    //       {this.myShittyNavSystem()}
+    //     </Content>
+    //   </Container>
+    // )
+    return ( this.myShittyNavSystem())
   }
 }
 
