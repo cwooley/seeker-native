@@ -10,7 +10,7 @@ export function fetchJWT(userData){
   form.append('password', userData.password)
   let request = axios({
   	method: 'post',
-  	url: 'http://localhost:3000/api/v1/login',
+  	url: 'https://seek-r.herokuapp.com/api/v1/login',
   	data: form
   })
   return {
@@ -45,8 +45,8 @@ export function createNewUser(userData){
   form.append('user[username]', userData.username)
   form.append('user[password]', userData.password)
   form.append('user[email]', userData.email)
-  form.append('user[profile_image_url]', userData.profileImage)
-  form.append('user[sapp_goal]', userData.dailyGoal)
+  form.append('user[profile_image_url]', userData.profile_image_url)
+  form.append('user[app_goal]', userData.dailyGoal)
   let request = axios({
     method: 'post',
     url: 'https://seeker-api.herokuapp.com/api/v1/users',

@@ -7,6 +7,7 @@ import ReduxPromise from 'redux-promise';
 import LoginForm from './src/components/LoginForm'
 import Main from './src/components/Main'
 
+
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 

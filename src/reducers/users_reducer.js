@@ -38,10 +38,6 @@ export default function (state = {user: {companies: []}}, action){
       return newState
 
     case "CREATE_NEW_USER":
-        if(action.payload.data[0].jwt){
-          localStorage.setItem('jwt', action.payload.data[0].jwt)
-          window.location = 'https://seek-r.herokuapp.com/main'
-        }
       return action.payload.data[1]
 
     case "EDIT_USER":

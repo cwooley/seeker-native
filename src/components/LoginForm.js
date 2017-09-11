@@ -26,7 +26,7 @@ class LoginForm extends Component{
     // Yo Dawg I heard you like Async
     let request = axios({
     	method: 'post',
-    	url: 'http://localhost:3000/api/v1/login',
+    	url: 'https://seeker-api.herokuapp.com/api/v1/login',
     	data: form
     }).then(data => AsyncStorage.setItem('jwt', data.data[0].jwt)
       .then((storage) => AsyncStorage.getItem('jwt')
