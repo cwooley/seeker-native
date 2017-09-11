@@ -21,10 +21,16 @@ class Company extends Component{
       }
     }
 
+  setActiveCompany = () => {
+    console.log("HIT SET ACTIVECOMPANY", this.props.navigation)
+    this.props.navigation.navigate('ActiveCompany', this.props.company)
+  }
+
   render(){
+    console.log("COMPANY PROPS",this.props)
     return(
-      <ListItem>
-        <Thumbnail square size={80} source={this.getLogoUrl()} />
+      <ListItem onPress={this.setActiveCompany}>
+        <Thumbnail square size={80} source={this.getLogoUrl()}  onPress={this.setActiveCompany}/>
         <Body>
           <Text>{this.props.company.name}</Text>
           <Text note>Last contact: {this.makeLastContact()}</Text>

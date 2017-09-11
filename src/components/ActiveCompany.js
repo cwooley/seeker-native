@@ -21,11 +21,11 @@ class ActiveCompany extends Component{
   }
 
   componentWillMount(){
-    this.setState({company: {...this.activeCompany(this.props.activeCompanyId)}})
+    this.setState({company: {...this.activeCompany(this.props.companyId)}})
   }
 
   componentWillReceiveProps(nextProps){
-    this.setState({company: {...this.activeCompany(nextProps.activeCompanyId)}})
+    this.setState({company: {...this.activeCompany(nextProps.companyId)}})
   }
 
   renderComponents(){
@@ -36,6 +36,7 @@ class ActiveCompany extends Component{
   }
 
   render(){
+    console.log("ACTIVECOMPANY PROPS", this.props)
     return(
       <View>
         <View style={styles.buttonView}>
@@ -58,7 +59,7 @@ const styles = {
   }
 }
 let mapStateToProps = (state) => {
-  return ({activeCompanyId: state.company.id, companies: state.user.companies})
+  return ({ companies: state.user.companies})
 }
 
 export default connect(mapStateToProps)(ActiveCompany)

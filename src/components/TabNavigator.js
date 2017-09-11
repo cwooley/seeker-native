@@ -1,13 +1,28 @@
 import React from 'react';
-import {TabNavigator} from 'react-navigation';
+import {TabNavigator, StackNavigator } from 'react-navigation';
 import CompaniesScreen from '../screens/CompaniesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import { Icon } from 'react-native-elements';
+import ActiveCompanyScreen from '../screens/ActiveCompanyScreen'
 
+const CompanyStack = StackNavigator({
+  Feed: {
+    screen: CompaniesScreen,
+    navigationOptions: {
+      title: 'Companies',
+    },
+  },
+  ActiveCompany: {
+    screen: ActiveCompanyScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: navigation.state.params.name
+    })
+  }
+})
 
 export const Tabs = TabNavigator({
   Main: {
-    screen: CompaniesScreen,
+    screen: CompanyStack,
     navigationOptions: {
       tabBarLabel: 'CompaniesList',
       tabBarIcon: ({ tintColor }) => <Icon name='format-list-bulleted' />
@@ -20,4 +35,4 @@ export const Tabs = TabNavigator({
       tabBarIcon:  ({ tintColor }) => <Icon name='person' />
     }
   },
-})
+});

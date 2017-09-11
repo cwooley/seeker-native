@@ -10,9 +10,9 @@ export default class CompaniesScreen extends Component {
         <Header />
         <Content>
           <NewCompanyForm />
-          <CompaniesList />
+          <CompaniesList navigation={this.props.navigation}/>
         </Content>
       </Container>
-    )  
+    )
   }
 }
