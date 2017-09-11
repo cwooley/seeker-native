@@ -20,8 +20,8 @@ class Main extends Component{
     console.log("PROPS",this.props.state.user)
     if (this.props.state.user.id){
       console.log("We have token rendering CompaniesList")
-      return <View><NewCompanyForm /><CompaniesList /></View>
-      // return <ActiveCompany />
+      // return <View><NewCompanyForm /><CompaniesList /></View>
+      return <ActiveCompany />
     }
     console.log("No token rendering LoginForm")
     return <LoginForm />

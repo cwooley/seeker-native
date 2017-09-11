@@ -14,7 +14,6 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStoreWithMiddleware(reducers)}>
-
           <Main />
       </Provider>
     );
