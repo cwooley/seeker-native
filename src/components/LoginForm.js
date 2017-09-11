@@ -16,6 +16,8 @@ class LoginForm extends Component{
   }
 
   loginPressed = () => {
+    //Handle Errors in this process and give some user feedback !
+    // I KNOW YOUR READING THIS!!!
     var FormData = require('form-data');
     var form = new FormData();
     form.append('username', this.state.username)
@@ -33,25 +35,20 @@ class LoginForm extends Component{
 
   render(){
     return(
-      <Container>
-        <Header />
-        <Content>
-          <Form>
-            <Item stackedLabel>
-              <Label>Username</Label>
-              <Input autoCapitalize="none" onChangeText={(text)=> this.setState({ username: text})} value={this.state.username}/>
-            </Item>
-            <Item stackedLabel last>
-              <Label>Password</Label>
-              <Input secureTextEntry={true} onChangeText={(text)=> this.setState({ password: text})} value={this.state.password}/>
-            </Item>
-            <Button block info onPress={this.loginPressed}>
-              <Text>Log In</Text>
-            </Button>
-            {this.state.loading && <Spinner color='blue' />}
-          </Form>
-        </Content>
-      </Container>
+            <Form>
+              <Item stackedLabel>
+                <Label>Username</Label>
+                <Input autoCapitalize="none" onChangeText={(text)=> this.setState({ username: text})} value={this.state.username}/>
+              </Item>
+              <Item stackedLabel last>
+                <Label>Password</Label>
+                <Input secureTextEntry={true} onChangeText={(text)=> this.setState({ password: text})} value={this.state.password}/>
+              </Item>
+              <Button block info onPress={this.loginPressed}>
+                <Text>Log In</Text>
+              </Button>
+              {this.state.loading && <Spinner color='blue' />}
+            </Form>
     )
   }
 }

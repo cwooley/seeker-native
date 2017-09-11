@@ -8,6 +8,7 @@ import CompaniesList from './CompaniesList'
 import NewCompanyForm from './NewCompanyForm'
 import ActiveCompany from './ActiveCompany'
 import {Tabs} from './TabNavigator'
+import LoginScreen from '../screens/LoginScreen'
 
 class Main extends Component{
 
@@ -25,7 +26,7 @@ class Main extends Component{
       // return <ActiveCompany />
     }
     console.log("No token rendering LoginForm")
-    return <LoginForm />
+    return <LoginScreen />
 
   }
 
