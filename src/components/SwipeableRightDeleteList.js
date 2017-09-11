@@ -8,7 +8,7 @@ import { Button, Icon, List, ListItem, Text } from 'native-base';
 // renderRow    ----> Function to render a row from one array element, template: data => <Company company={data} />
 // deleteRow       ----> Function that invokes the proper action to delete element
 
-class SwipeableDeleteList extends Component {
+class SwipeableRightDeleteList extends Component {
   constructor(props) {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
@@ -28,9 +28,10 @@ class SwipeableDeleteList extends Component {
            <Icon active name="trash" />
          </Button>}
        rightOpenValue={-75}
+
      />
     )
   }
 }
 
-export default SwipeableDeleteList
+export default SwipeableRightDeleteList

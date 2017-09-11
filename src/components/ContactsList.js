@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {Text} from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Contact from './Contact'
 import {deleteContact} from '../actions/companies'
-import SwipeableDeleteList from './SwipeableDeleteList';
+import SwipeableLeftDeleteList from './SwipeableLeftDeleteList';
 
 class ContactsList extends Component {
   renderContact = (data) => <Contact contact={data} />
@@ -10,7 +12,7 @@ class ContactsList extends Component {
 
     render(){
       return(
-        <SwipeableDeleteList
+        <SwipeableLeftDeleteList
           listViewData={this.props.company.contacts}
           renderRow={this.renderContact}
           deleteRow={this.deleteContact}
@@ -18,3 +20,10 @@ class ContactsList extends Component {
       )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ deleteContact }, dispatch)
+}
+
+
+export default connect(null, mapDispatchToProps)(ContactsList);
