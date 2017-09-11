@@ -15,7 +15,7 @@ const CompanyStack = StackNavigator({
   ActiveCompany: {
     screen: ActiveCompanyScreen,
     navigationOptions: ({ navigation }) => ({
-      title: navigation.state.params.name
+      title: 'ActiveCompany'
     })
   }
 })

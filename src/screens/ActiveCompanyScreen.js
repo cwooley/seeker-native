@@ -4,12 +4,16 @@ import { Container, Header, Content} from 'native-base';
 
 export default class ActiveCompanyScreen extends Component {
 
+  renderActiveCompany(){
+    if (this.props.navigation.state.params){
+      return <ActiveCompany companyId={this.props.navigation.state.params.id}/>
+    }
+  }
   render(){
-    console.log("ActiveCompany ID from screen", this.props.navigation.state.params.id)
     return(
       <Container>
         <Content>
-          <ActiveCompany companyId={this.props.navigation.state.params.id}/>
+          {this.renderActiveCompany()}
         </Content>
       </Container>
     )
