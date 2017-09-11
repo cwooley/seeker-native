@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Contact from './Contact'
 import {deleteContact} from '../actions/companies'
-import SwipeableLeftDeleteList from './SwipeableLeftDeleteList';
+import SwipeableDeleteList from './SwipeableDeleteList';
 
 class ContactsList extends Component {
   renderContact = (data) => <Contact contact={data} />
@@ -12,7 +12,7 @@ class ContactsList extends Component {
 
     render(){
       return(
-        <SwipeableLeftDeleteList
+        <SwipeableDeleteList
           listViewData={this.props.company.contacts}
           renderRow={this.renderContact}
           deleteRow={this.deleteContact}

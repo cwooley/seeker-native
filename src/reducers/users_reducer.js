@@ -14,7 +14,6 @@ export default function (state = {user: {companies: []}}, action){
         AsyncStorage.setItem('jwt', action.payload.data[0].jwt);
         //Where to put on mobile device?
         let userObj = JSON.parse(action.payload.data[1])
-        console.log(userObj)
         return userObj
       }
       else{
@@ -33,19 +32,16 @@ export default function (state = {user: {companies: []}}, action){
       return newState
 
     case "DELETE_COMPANY":
-      console.log("Made it to reducer")
       newState = {...state}
       newCompanies = state.companies.filter(company => company.id != action.payload.data.id)
       newState.companies = newCompanies
       return newState
 
     case "CREATE_NEW_USER":
-      console.log("STATE AFTER CREATED USER", newState)
         if(action.payload.data[0].jwt){
           localStorage.setItem('jwt', action.payload.data[0].jwt)
           window.location = 'https://seek-r.herokuapp.com/main'
         }
-      console.log("USER AND JWT UPON SIGNUP IS", action.payload.data)
       return action.payload.data[1]
 
     case "EDIT_USER":

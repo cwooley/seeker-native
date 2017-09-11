@@ -23,7 +23,6 @@ class NewCompanyForm extends Component{
   }
 
   render(){
-    console.log("PROPS", this.props)
     return(
       <View>
         <Input autoCapitalize="none" onChangeText={(text)=> this.setState({ companyName: text})} value={this.state.companyName}/>

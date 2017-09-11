@@ -5,7 +5,7 @@ import { ListView} from 'react-native';
 import {deleteCompany} from '../actions/companies'
 import { Button, Icon, List, ListItem, Text } from 'native-base';
 import Company from './Company';
-import SwipeableRightDeleteList from './SwipeableRightDeleteList';
+import SwipeableDeleteList from './SwipeableDeleteList';
 
 class CompaniesList extends Component {
 

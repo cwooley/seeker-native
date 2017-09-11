@@ -17,7 +17,6 @@ class Main extends Component{
 
   myShittyNavSystem = () =>{
     //SWITCH TO CHECK FOR USER ALSO NEED TO CONNECT THIS TO STORE
-    console.log("PROPS",this.props.state.user)
     if (this.props.state.user.id){
       console.log("We have token rendering CompaniesList")
       // return <View><NewCompanyForm /><CompaniesList /></View>

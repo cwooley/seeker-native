@@ -5,7 +5,6 @@ import {ListItem, Body, Text, Thumbnail} from 'native-base';
 export default class Contact extends Component{
 
   render(){
-    console.log(this.props.contact)
     return(
       <ListItem>
         <Body>

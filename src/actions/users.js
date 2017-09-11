@@ -59,7 +59,6 @@ export function createNewUser(userData){
 }
 
 export function fetchUserData(jwt){
-  console.log('Hit fetchUserData')
   let url = 'https://seeker-api.herokuapp.com/api/v1/users/1234567'
 
   let request = axios({
