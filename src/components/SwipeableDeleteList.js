@@ -25,7 +25,10 @@ class SwipeableDeleteList extends Component {
        renderRow={this.props.renderRow}
        renderLeftHiddenRow={() => {}}
        renderRightHiddenRow={(data, secId, rowId, rowMap) =>
-         <Button full danger onPress={event => this.props.deleteRow(data.id)}>
+         <Button full danger onPress={_ => {
+           rowMap[`${secId}${rowId}`].props.closeRow();
+           this.props.deleteRow(data.id)}
+         }>
            <Icon active name="trash" />
          </Button>}
        rightOpenValue={-75}
