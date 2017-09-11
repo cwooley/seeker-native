@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import LoginForm from './LoginForm';
-import { Container, Header, Content, Root } from 'native-base';
+import { Container, Header, Content } from 'native-base';
 import {AsyncStorage, View} from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -20,7 +20,7 @@ class Main extends Component{
     if (this.props.state.user.id){
       console.log("We have token rendering CompaniesList")
       // return <View><NewCompanyForm /><CompaniesList /></View>
-      return <Root><ActiveCompany /></Root>
+      return <ActiveCompany />
     }
     console.log("No token rendering LoginForm")
     return <LoginForm />

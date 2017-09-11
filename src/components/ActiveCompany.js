@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
-import { Container, Header, Content, Tab, Tabs,  Button } from 'native-base';
+import { Container, Header, Content, Tab, Tabs,  Button, H3 } from 'native-base';
 import InteractionsList from './InteractionsList';
 import ContactsList from './ContactsList';
 
@@ -39,8 +39,8 @@ class ActiveCompany extends Component{
     return(
       <View>
         <View style={styles.buttonView}>
-          <Button block info style={styles.tabButton} onPress={() => this.setState({activeComponent: 'contacts'})}><Text>Contacts </Text></Button>
-          <Button block info style={styles.tabButton} onPress={() => this.setState({activeComponent: 'interactions'})}><Text>Interactions </Text></Button>
+          <Button block bordered info style={styles.tabButton} onPress={() => this.setState({activeComponent: 'contacts'})}><Text>Contacts </Text></Button>
+          <Button block bordered info style={styles.tabButton} onPress={() => this.setState({activeComponent: 'interactions'})}><Text>Interactions </Text></Button>
         </View>
         {this.renderComponents()}
       </View>

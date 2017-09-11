@@ -6,7 +6,7 @@ import { Button, Icon, List, ListItem, Text } from 'native-base';
 //PROPS FOR COMPONENT
 // listViewData ----> Array of stuff to render into rows
 // renderRow    ----> Function to render a row from one array element, template: data => <Company company={data} />
-// deleteRow       ----> Function that invokes the proper action to delete element
+// deleteRow       ----> Function that invokes the proper action to delete element template: (id) => this.props.deleteInteraction(id)
 
 class SwipeableDeleteList extends Component {
   constructor(props) {
