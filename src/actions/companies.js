@@ -68,8 +68,8 @@ export function addInteraction (interactionInfo){
   var FormData = require('form-data');
   var form = new FormData();
   // NEED TO APPEND DATA TO FORM TO MAKE INTERACTION!!!!!
-  form.append('interaction[kind]', interactionInfo.interactionType)
-  form.append('interaction[status]', interactionInfo.interactionStatus)
+  form.append('interaction[kind]', interactionInfo.kind)
+  form.append('interaction[status]', interactionInfo.status)
   form.append('interaction[company_id]', interactionInfo.company_id)
   let request = axios({
     method: 'post',

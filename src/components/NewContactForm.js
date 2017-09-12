@@ -3,7 +3,7 @@ import {Text} from 'react-native'
 import { Container, Header, Content, Input, Item, Button } from 'native-base';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addContact, addInteraction } from '../actions/companies.js'
+import { addContact } from '../actions/companies.js'
 
 
 class NewContactForm extends Component {
