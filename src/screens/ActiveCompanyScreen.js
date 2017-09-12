@@ -6,7 +6,7 @@ export default class ActiveCompanyScreen extends Component {
 
   renderActiveCompany(){
     if (this.props.navigation.state.params){
-      return <ActiveCompany companyId={this.props.navigation.state.params.id}/>
+      return <ActiveCompany companyId={this.props.navigation.state.params.id} navigation={this.props.navigation}/>
     }
   }
   render(){

@@ -30,9 +30,9 @@ class ActiveCompany extends Component{
 
   renderComponents(){
     if (this.state.activeComponent === 'contacts'){
-      return <ContactsList company={this.state.company} />
+      return <ContactsList company={this.state.company} navigation={this.props.navigation} />
     }
-    return <InteractionsList company={this.state.company} />
+    return <InteractionsList company={this.state.company} navigation={this.props.navigation} />
   }
 
   render(){

@@ -38,9 +38,9 @@ export function addContact (contactInfo) {
   var FormData = require('form-data');
   var form = new FormData();
   // NEED TO APPEND DATA TO FORM TO MAKE CONTACT!!!!
-  form.append('contact[name]', contactInfo.contactName)
-  form.append('contact[email]', contactInfo.contactEmail)
-  form.append('contact[phone_number]', contactInfo.contactPhone)
+  form.append('contact[name]', contactInfo.name)
+  form.append('contact[email]', contactInfo.email)
+  form.append('contact[phone_number]', contactInfo.phone)
   form.append('contact[company_id]', contactInfo.company_id)
   let request = axios({
     method: 'post',

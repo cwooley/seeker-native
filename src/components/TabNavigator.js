@@ -4,8 +4,28 @@ import CompaniesScreen from '../screens/CompaniesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import { Icon } from 'react-native-elements';
 import ActiveCompanyScreen from '../screens/ActiveCompanyScreen'
+import NewInteractionForm from '../components/NewInteractionForm'
+import NewContactForm from '../components/NewContactForm'
 
-const CompanyStack = StackNavigator({
+const ActiveCompanyStack = StackNavigator({
+  ActiveCompany: {
+    screen: ActiveCompanyScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'ActiveCompany'
+    })
+  },
+  NewInteractionForm: {
+    screen: NewInteractionForm
+  },
+  NewContactForm: {
+    screen: NewContactForm
+  }
+}, {
+  mode: 'modal',
+  headerMode: 'none'
+})
+
+const CompanyListStack = StackNavigator({
   Feed: {
     screen: CompaniesScreen,
     navigationOptions: {
@@ -13,7 +33,7 @@ const CompanyStack = StackNavigator({
     },
   },
   ActiveCompany: {
-    screen: ActiveCompanyScreen,
+    screen: ActiveCompanyStack,
     navigationOptions: ({ navigation }) => ({
       title: 'ActiveCompany'
 
@@ -21,9 +41,11 @@ const CompanyStack = StackNavigator({
   }
 })
 
+
+
 export const Tabs = TabNavigator({
   Main: {
-    screen: CompanyStack,
+    screen: CompanyListStack,
     navigationOptions: {
       tabBarLabel: 'CompaniesList',
       tabBarIcon: ({ tintColor }) => <Icon name='format-list-bulleted' />
