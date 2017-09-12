@@ -16,6 +16,7 @@ const CompanyStack = StackNavigator({
     screen: ActiveCompanyScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'ActiveCompany'
+
     })
   }
 })
@@ -28,7 +29,7 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name='format-list-bulleted' />
     }
   },
-  ActiveCompany: {
+  Profile: {
     screen: ProfileScreen,
     navigationOptions: {
       tabBarLabel: 'Profile',

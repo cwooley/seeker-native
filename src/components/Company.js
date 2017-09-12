@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {ListItem, Body, Text, Thumbnail} from 'native-base';
+import { View } from 'react-native';
 import TimeAgo from 'react-native-timeago';
 
 
@@ -30,7 +31,7 @@ class Company extends Component{
     console.log("COMPANY PROPS",this.props)
     return(
       <ListItem onPress={this.setActiveCompany}>
-        <Thumbnail square size={80} source={this.getLogoUrl()}  onPress={this.setActiveCompany}/>
+        <View ><Thumbnail square size={80} source={this.getLogoUrl()}  onPress={this.setActiveCompany}/></View>
         <Body>
           <Text>{this.props.company.name}</Text>
           <Text note>Last contact: {this.makeLastContact()}</Text>

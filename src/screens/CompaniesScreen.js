@@ -6,13 +6,10 @@ import { Container, Header, Content} from 'native-base';
 export default class CompaniesScreen extends Component {
   render(){
     return(
-      <Container>
-        <Header />
         <Content>
           <NewCompanyForm />
           <CompaniesList navigation={this.props.navigation}/>
         </Content>
-      </Container>
     )
   }
 }
