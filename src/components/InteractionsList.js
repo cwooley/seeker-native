@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
+import {Button} from 'native-base';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Interaction from './Interaction'
@@ -12,11 +13,15 @@ class InteractionsList extends Component {
 
     render(){
       return(
-        <SwipeableDeleteList
-          listViewData={this.props.company.interactions}
-          renderRow={this.renderInteraction}
-          deleteRow={this.deleteInteraction}
-        />
+        <View>
+          <Button block info onPress={() => this.props.navigation.navigate('NewInteractionForm', this.props.company)}><Text>New Interaction</Text></Button>
+          <SwipeableDeleteList
+            listViewData={this.props.company.interactions}
+            renderRow={this.renderInteraction}
+            deleteRow={this.deleteInteraction}
+          />
+        </View>
+
       )
     }
 }
