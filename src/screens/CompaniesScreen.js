@@ -7,8 +7,8 @@ export default class CompaniesScreen extends Component {
   render(){
     return(
         <Content>
-          <NewCompanyForm />
           <CompaniesList navigation={this.props.navigation}/>
+          <NewCompanyForm />
         </Content>
     )
   }

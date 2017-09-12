@@ -19,18 +19,33 @@ class NewCompanyForm extends Component{
         jwt: jwt
       }
       this.props.makeNewCompany(dataObj)
+      this.setState({companyName: ''})
     })
   }
 
   render(){
     return(
       <View>
-        <Input autoCapitalize="none" onChangeText={(text)=> this.setState({ companyName: text})} value={this.state.companyName}/>
-        <Button small primary onPress={this.newBtnPressed}>
+        <Input style={styles.inputStyle} autoCapitalize="none" onChangeText={(text)=> this.setState({ companyName: text})} value={this.state.companyName}/>
+        <Button style={{alignSelf: 'center'}} small primary onPress={this.newBtnPressed}>
           <Text>New Company</Text>
         </Button>
       </View>
     )
+  }
+}
+
+const styles = {
+    inputStyle: {
+      color: '#000',
+      backgroundColor: '#ffffff',
+      borderWidth: 1,
+      borderRadius: 10,
+      borderColor: '#48BBEC',
+      paddingRight: 5,
+      paddingLeft: 5,
+      fontSize: 18,
+      lineHeight: 20,
   }
 }
 
