@@ -9,10 +9,12 @@ import SwipeableDeleteList from './SwipeableDeleteList';
 
 class CompaniesList extends Component {
 
-renderCompany = (data) => <Company company={data} />
+renderCompany = (data) => <Company company={data} navigation={this.props.navigation} />
 deleteCompany = (id) => this.props.deleteCompany(id)
 
   render(){
+    console.log("COMPANIES LIST PROPS", this.props)
+
     return(
       <SwipeableDeleteList
         listViewData={this.props.companies}

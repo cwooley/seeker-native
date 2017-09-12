@@ -63,7 +63,7 @@ class SignUpForm extends Component{
         <Button block info onPress={this.signUpPressed}>
           <Text>Sign Up</Text>
         </Button>
-        {this.state.loading && <Spinner color='blue' />}
+        {this.state.loading && <Spinner color='green' />}
       </Form>
     )
   }
