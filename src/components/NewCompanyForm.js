@@ -27,7 +27,7 @@ class NewCompanyForm extends Component{
     return(
       <View>
         <Input style={styles.inputStyle} autoCapitalize="none" onChangeText={(text)=> this.setState({ companyName: text})} value={this.state.companyName}/>
-        <Button style={{alignSelf: 'center'}} small primary onPress={this.newBtnPressed}>
+        <Button style={{alignSelf: 'center'}} block info onPress={this.newBtnPressed}>
           <Text>New Company</Text>
         </Button>
       </View>

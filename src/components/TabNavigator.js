@@ -11,7 +11,7 @@ const ActiveCompanyStack = StackNavigator({
   ActiveCompany: {
     screen: ActiveCompanyScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'ActiveCompany'
+      title: navigation.state.params.name
     })
   },
   NewInteractionForm: {
@@ -30,12 +30,13 @@ const CompanyListStack = StackNavigator({
     screen: CompaniesScreen,
     navigationOptions: {
       title: 'Companies',
+      gesturesEnabled: false,
     },
   },
   ActiveCompany: {
     screen: ActiveCompanyStack,
     navigationOptions: ({ navigation }) => ({
-      title: 'ActiveCompany'
+      title: navigation.state.params.name
 
     })
   }
@@ -58,4 +59,9 @@ export const Tabs = TabNavigator({
       tabBarIcon:  ({ tintColor }) => <Icon name='person' />
     }
   },
+},
+{
+  swipeEnabled: false,
+  headerMode: 'none',
+  tabBarPosition: 'bottom',
 });

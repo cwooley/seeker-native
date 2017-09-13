@@ -6,21 +6,31 @@ import SignUpForm from '../components/SignUpForm'
 export default class LoginScreen extends Component{
   render(){
     return (
-      <Container>
+      <Container style={styles.containerStyle}>
         <Header hasTabs />
         <Tabs initialPage={0}>
           <Tab heading="Login">
-            <Content>
+            <Content style={styles.contentStyle} >
               <LoginForm />
             </Content>
           </Tab>
           <Tab heading="SignUp">
-            <Content>
+            <Content style={styles.contentStyle} >
               <SignUpForm />
             </Content>
           </Tab>
         </Tabs>
       </Container>
     )
+  }
+}
+
+const styles = {
+  containerStyle: {
+    backgroundColor: '#ffffff',
+  },
+  contentStyle: {
+    margin: 10,
+    padding: 10
   }
 }

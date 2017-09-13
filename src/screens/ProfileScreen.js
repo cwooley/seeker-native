@@ -7,7 +7,6 @@ export default class ProfileScreen extends Component {
   render(){
     return(
       <Container>
-        <Header />
         <Content>
           <Profile />
         </Content>

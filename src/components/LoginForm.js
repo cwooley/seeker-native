@@ -33,16 +33,17 @@ class LoginForm extends Component{
       .then((jwt) => this.props.fetchUserData(jwt) )))
   }
 
+
   render(){
     return(
           <Form>
             <Item stackedLabel>
               <Label>Username</Label>
-              <Input autoCapitalize="none" onChangeText={(text)=> this.setState({ username: text})} value={this.state.username}/>
+              <Input style={styles.inputStyle} autoCapitalize="none" onChangeText={(text)=> this.setState({ username: text})} value={this.state.username}/>
             </Item>
             <Item stackedLabel last>
               <Label>Password</Label>
-              <Input secureTextEntry={true} onChangeText={(text)=> this.setState({ password: text})} value={this.state.password}/>
+              <Input style={styles.inputStyle} secureTextEntry={true} onChangeText={(text)=> this.setState({ password: text})} value={this.state.password}/>
             </Item>
             <Button block info onPress={this.loginPressed}>
               <Text>Log In</Text>
@@ -50,6 +51,16 @@ class LoginForm extends Component{
             {this.state.loading && <Spinner color='green' />}
           </Form>
     )
+  }
+}
+
+const styles = {
+
+  inputStyle: {
+    width: '95%',
+    paddingLeft: 0,
+    paddingRight: 0,
+    alignSelf: 'center',
   }
 }
 
