@@ -52,7 +52,8 @@ class ActiveCompany extends Component{
 
 const styles = {
   buttonView: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    backgroundColor: '#ffffff'
   },
   tabButton: {
     flex: 1

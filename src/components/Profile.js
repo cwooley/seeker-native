@@ -21,7 +21,6 @@ class Profile extends Component {
           if (matchString === todaysDate.toLocaleDateString() && interaction.kind === "Application"){
             counter++;
           }
-          console.log(matchString, todaysDate.toLocaleDateString())
         })
       })
       return counter/this.props.user.app_goal
@@ -30,8 +29,6 @@ class Profile extends Component {
   }
 
   render(){
-    console.log(this.props.profile_image_url)
-
     return(
       <View style={styles.profileContainer}>
         <H2>{this.props.user.username}</H2>

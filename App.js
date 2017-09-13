@@ -15,13 +15,16 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStoreWithMiddleware(reducers)}>
-          <Main />
+          <Main style={styles.main}/>
       </Provider>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  main: {
+    backgroundColor: '#000000'
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
